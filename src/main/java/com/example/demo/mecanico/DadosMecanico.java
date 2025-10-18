@@ -1,4 +1,10 @@
 package com.example.demo.mecanico;
 
-public record DadosMecanico(String nome, int anosDeExperiencia) {
+import jakarta.validation.constraints.NotEmpty;
+
+public record DadosMecanico(
+        @NotEmpty
+        String nome,
+
+        int anosDeExperiencia) {
 }

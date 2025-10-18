@@ -1,4 +1,18 @@
 package com.example.demo.veiculo;
 
-public record DadosVeiculo(String marca, String modelo, int ano) {
-}
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+
+public record DadosVeiculo(
+        @NotEmpty
+        String marca,
+
+        @NotEmpty
+        String modelo,
+
+        @Pattern(regexp = "\\d{4}")
+        String ano,
+
+        String cor
+)
+{}
