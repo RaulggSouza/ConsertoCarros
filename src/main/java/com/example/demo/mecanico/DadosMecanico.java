@@ -7,4 +7,7 @@ public record DadosMecanico(
         String nome,
 
         int anosDeExperiencia) {
+        public DadosMecanico(Mecanico mecanico) {
+                this(mecanico.getNome(), mecanico.getAnosDeExperiencia());
+        }
 }
