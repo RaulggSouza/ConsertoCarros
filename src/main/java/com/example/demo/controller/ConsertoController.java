@@ -3,22 +3,22 @@ package com.example.demo.controller;
 import com.example.demo.conserto.*;
 import com.example.demo.dao.ConsertoRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("consertos")
 public class ConsertoController {
-    @Autowired
-    private ConsertoRepository repository;
+    private final ConsertoRepository repository;
+
+    public ConsertoController(ConsertoRepository repository) {
+        this.repository = repository;
+    }
 
     @PostMapping
     @Transactional
